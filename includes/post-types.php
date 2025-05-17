@@ -272,3 +272,62 @@ function save_custom_display_options($post_id) {
 add_action('save_post', 'save_custom_display_options');
 
 
+
+
+
+
+
+
+
+function register_contact_message_cpt() {
+    $labels = array(
+        'name'                  => _x('Messages', 'Post Type General Name', 'portafolio'),
+        'singular_name'         => _x('Message', 'Post Type Singular Name', 'portafolio'),
+        'menu_name'             => __('Contact Messages', 'portafolio'),
+        'name_admin_bar'        => __('Contact Message', 'portafolio'),
+        'archives'              => __('Message Archives', 'portafolio'),
+        'attributes'            => __('Message Attributes', 'portafolio'),
+        'parent_item_colon'     => __('Parent Message:', 'portafolio'),
+        'all_items'             => __('All Messages', 'portafolio'),
+        'add_new_item'          => __('Add New Message', 'portafolio'),
+        'add_new'               => __('Add New', 'portafolio'),
+        'new_item'              => __('New Message', 'portafolio'),
+        'edit_item'             => __('Edit Message', 'portafolio'),
+        'update_item'           => __('Update Message', 'portafolio'),
+        'view_item'             => __('View Message', 'portafolio'),
+        'search_items'          => __('Search Messages', 'portafolio'),
+        'not_found'             => __('No messages found.', 'portafolio'),
+        'not_found_in_trash'    => __('No messages found in Trash.', 'portafolio'),
+        'featured_image'        => __('Featured Image', 'portafolio'),
+        'set_featured_image'    => __('Set featured image', 'portafolio'),
+        'remove_featured_image' => __('Remove featured image', 'portafolio'),
+        'use_featured_image'    => __('Use as featured image', 'portafolio'),
+        'insert_into_item'      => __('Insert into message', 'portafolio'),
+        'uploaded_to_this_item' => __('Uploaded to this message', 'portafolio'),
+        'items_list'            => __('Messages list', 'portafolio'),
+        'items_list_navigation' => __('Messages list navigation', 'portafolio'),
+        'filter_items_list'     => __('Filter messages list', 'portafolio'),
+    );
+
+    $args = array(
+        'label'                 => __('Contact Message', 'portafolio'),
+        'description'           => __('Submitted contact forms', 'portafolio'),
+        'labels'                => $labels,
+        'supports'              => array('title', 'editor'), // title = subject, editor = message
+        'hierarchical'          => false,
+        'public'                => false, // not public
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'show_in_admin_bar'     => false,
+        'show_in_nav_menus'     => false,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => false,
+        'capability_type'       => 'post',
+    );
+
+    register_post_type('contact_message', $args);
+}
+add_action('init', 'register_contact_message_cpt');
