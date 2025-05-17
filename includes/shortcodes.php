@@ -97,4 +97,4 @@ function cv_testimonials_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('cv_testimonials', 'cv_testimonials_shortcode');
-
+ 
