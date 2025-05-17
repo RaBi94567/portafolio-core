@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Portafolio Core
+Plugin Name: Portafolio Core Main
 Description: Handles custom post types, shortcodes, and other core functionality for the Portafolio theme.
 Version: 1.0
-Author: Your Name
+Author: Rabi Thakur
 */
 
 if (!defined('ABSPATH')) exit;
